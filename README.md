@@ -1,31 +1,35 @@
 # Sobre
 
-- Banco fictício com checkout
+- Banco fictício com um checkout, criado durante as aulas da [imersão Full Cycle](https://imersao.fullcycle.com.br/)
 
 # Desafio
 
-- Performance entre o banco de dados e a aplicação (checkout)
-- gRPC (HTTP2)
-- Apache Kafka
-- Elasticsearch e Kibana com Kafka Connect
-- Istio, Kiali, Prometheus e Grafana
-- Docker e Kubernetes
+- Performance entre as transações que ocorrem no banco fictício e no checkout
+- Utilização de gRPC (HTTP/2)
+- Utilização de Apache Kafka
+- Utilização de Elasticsearch e Kibana com Kafka Connect
+- Utilização de Istio, Kiali, Prometheus e Grafana
+- Utilização de Docker e Kubernetes
 
 # Arquitetura
 
-Banco (backend) - Golang
-Extrato (backend) - 
-Extrato (frontend) - 
-Checkout (backend) - Nest.js (TypeScript)
-Checkout (frontend) - Next.js
+- Banco (backend) - utilizando Golang
+- Extrato (backend) - 
+- Extrato (frontend) - 
+- Checkout (backend) - utilizando NestJS
+- Checkout (frontend) - utilizando Next.js
 
-Banco publica no tópico do Apache Kafka
-Extrato fica lendo o tópico do Apache Kafka
-Kibana (frontend) acessa o Elasticsearch
-Kafka Connect alimenta o Elasticsearch através do tópico do Apache Kafka 
+De forma bem resumida:
+- Banco (backend) atualiza banco de dados e publica as transações no tópico do Apache Kafka
+- Extrato (backend) consome as transações do tópico do Apache Kafka
+- Extrato (frontend) exibe as transações já consumidas do tópico do Apache Kafka
+- Kafka Connect alimenta o Elasticsearch através do tópico do Apache Kafka 
+- Kibana (frontend) acessa o Elasticsearch
 
 # Comandos
 
-sudo docker-compose up -d
-sudo docker exec -it catarinobank bash
-sudo docker-compose down
+- `cd src/catarinobank`
+- `sudo docker-compose up -d`
+- `sudo docker ps --all`
+- `sudo docker exec -it catarinobank bash`
+- `sudo docker-compose down`
